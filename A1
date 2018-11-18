@@ -1,0 +1,35 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <string>
+
+int main(int argc, char const *argv[])
+{
+    int size;
+    int* array=new int[size];
+    float average; //Total amout divded with the amount of numbers in the text file.
+    int number=0;
+    int sum=0;
+    std::ifstream inputFile;
+
+    inputFile.open("Buffer.txt");
+
+    if(!inputFile.is_open()){
+        std::cout<<"It Failed\n";
+        return 0;
+    }
+    while(inputFile>>number){
+        sum= sum+number;;
+        array[size]=number;
+        size+=1;
+    }
+   
+    average= sum/size;
+    std::cout<<"These numbers are above average!\n";
+   for (int i=0;i<size;i++){
+       if(array[i]>average){
+           std::cout<<array[i]<<std::endl;
+       }
+   }
+    return 0;
+}
